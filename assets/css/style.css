@@ -25,8 +25,8 @@
 
   --bg-gradient-onyx: linear-gradient(
     to bottom right, 
-    hsl(240, 1%, 25%) 3%, 
-    hsl(0, 0%, 19%) 97%
+    hsla(45, 4%, 18%, 0.644) 3%, 
+    hsl(0, 5%, 35%) 97%
   );
   --bg-gradient-jet: linear-gradient(
     to bottom right, 
@@ -56,18 +56,18 @@
 
   /* solid */
 
-  --jet: hsl(0, 0%, 22%);
-  --onyx: hsl(240, 1%, 17%);
-  --eerie-black-1: hsl(240, 2%, 13%);
-  --eerie-black-2: hsl(240, 2%, 12%);
-  --smoky-black: hsl(0, 0%, 7%);
-  --white-1: hsl(0, 0%, 100%);
-  --white-2: hsl(0, 0%, 98%);
-  --orange-yellow-crayola: hsl(45, 100%, 72%);
-  --vegas-gold: hsl(45, 54%, 58%);
-  --light-gray: hsl(0, 0%, 84%);
-  --light-gray-70: hsla(0, 0%, 84%, 0.7);
-  --bittersweet-shimmer: hsl(0, 43%, 51%);
+  --jet: hsl(0, 0%, 0%);
+  --onyx: hsl(0, 0%, 0%);
+  --eerie-black-1: hsl(60, 6%, 6%);
+  --eerie-black-2: hsl(240, 29%, 92%);
+  --smoky-black: hsl(0, 0%, 4%);
+  --white-1: hsl(0, 20%, 96%);
+  --white-2: hsl(0, 0%, 7%);
+  --orange-yellow-crayola: hsla(44, 88%, 46%, 0.75);
+  --vegas-gold: hsl(43, 30%, 95%);
+  --light-gray: hsl(0, 0%, 1%);
+  --light-gray-70: hsla(0, 0%, 3%, 0.7);
+  --bittersweet-shimmer: hsl(0, 3%, 6%);  
 
   /**
    * typography
@@ -274,7 +274,7 @@ article.active {
 
 .content-card {
   position: relative;
-  background: var(--border-gradient-onyx);
+  background: var(--white);
   padding: 15px;
   padding-top: 45px;
   border-radius: 14px;
@@ -287,12 +287,15 @@ article.active {
   content: "";
   position: absolute;
   inset: 1px;
-  background: var(--bg-gradient-jet);
+  background: var(--white);
   border-radius: inherit;
   z-index: -1;
 }
 
 
+.certifcates-item {
+  margin-bottom: 20px; /* adjust as needed */
+}
 
 
 
@@ -331,9 +334,18 @@ main {
   gap: 15px;
 }
 
-.avatar-box {
+/* .avatar-box {
   background: var(--bg-gradient-onyx);
   border-radius: 20px;
+} */
+
+.avatar-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ccc; /* optional for a clean border */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* optional for subtle depth */
 }
 
 .info-content .name {
@@ -459,7 +471,7 @@ main {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: hsla(240, 1%, 17%, 0.75);
+  background: hsla(44, 88%, 46%, 0.75);
   backdrop-filter: blur(10px);
   border: 1px solid var(--jet);
   border-radius: 12px 12px 0 0;
@@ -483,9 +495,9 @@ main {
 }
 
 .navbar-link:hover,
-.navbar-link:focus { color: var(--light-gray-70); }
+.navbar-link:focus { color: blue; }
 
-.navbar-link.active { color: var(--orange-yellow-crayola); }
+.navbar-link.active { color: white; }
 
 
 
@@ -524,7 +536,7 @@ main {
 
 .service-item {
   position: relative;
-  background: var(--border-gradient-onyx);
+  background: var(--white);
   padding: 20px;
   border-radius: 14px;
   box-shadow: var(--shadow-2);
@@ -535,7 +547,7 @@ main {
   content: "";
   position: absolute;
   inset: 1px;
-  background: var(--bg-gradient-jet);
+  background: var(--white);
   border-radius: inherit;
   z-index: -1;
 }
@@ -549,7 +561,7 @@ main {
 .service-item-title { margin-bottom: 7px; }
 
 .service-item-text {
-  color: var(--light-gray);
+  color: var(--black-1);
   font-size: var(--fs-6);
   font-weight: var(--fw-3);
   line-height: 1.6;
@@ -756,9 +768,31 @@ main {
 
 .clients-item img:hover { filter: grayscale(0); }
 
+.certificate-preview {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px; /* Adjust size */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  z-index: 10;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
+.certificate-preview img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
-
+.certificates-item-title:hover + .certificate-preview {
+  opacity: 1;
+  visibility: visible;
+}
 
 /*-----------------------------------*\
   #RESUME
@@ -796,7 +830,7 @@ main {
 }
 
 .timeline-list span {
-  color: var(--vegas-gold);
+  color: var(--black-1);
   font-weight: var(--fw-400);
   line-height: 1.6;
 }
