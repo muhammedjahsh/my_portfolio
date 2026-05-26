@@ -864,10 +864,10 @@ main {
 }
 
 /* resume download button */
-.download-btn-container {
-  display: flex;
-  justify-content: center; /* Horizontally center */
-  padding: 10px 0; /* Optional: Add some spacing */
+.download-btn-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* optional spacing between buttons */
 }
 
 /* Existing button styles (keep them) */
